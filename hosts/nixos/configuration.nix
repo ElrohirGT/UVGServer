@@ -1,19 +1,5 @@
-{
-  pkgs,
-  self,
-  ...
-}: {
-  systemd.services.brightless = {
-    description = "Le baja todo el brillo a la laptop";
-    after = ["display-manager.service" "multi-user.target"];
-    wantedBy = ["multi-user.target"];
-    serviceConfig = {
-      Type = "oneshot";
-      ExecStart = "${pkgs.brightnessctl}/bin/brightnessctl s 100%-";
-    };
-  };
-
-  imports = [./hardware-configuration.nix];
+{pkgs, ...}: {
+  imports = [./hardware-configuration.nix ../../modules/brightness.nix];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -25,21 +11,11 @@
     extraGroups = ["wheel"];
   };
 
-  users.users.flavio = {
-    isNormalUser = true;
-    extraGroups = ["wheel"];
-    packages = let
-      vimRice = self.inputs.flaviosConfiguration.outputs.packages.x86_64-linux.vim;
-    in [vimRice];
-  };
-
   environment.systemPackages = with pkgs; [
     neovim
     wget
     wpa_supplicant
     git
-    # No borrar
-    brightnessctl
   ];
 
   services.openssh = {
