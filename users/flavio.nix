@@ -1,7 +1,4 @@
-{
-  self,
-  ...
-}: {
+{self, ...}: {
   users.users.flavio = {
     isNormalUser = true;
     extraGroups = ["wheel"];

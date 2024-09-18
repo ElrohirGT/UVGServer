@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  imports = [./hardware-configuration.nix ../../modules/brightness.nix];
+  imports = [./hardware-configuration.nix ../../modules/brightness.nix ../../users/flavio.nix];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
