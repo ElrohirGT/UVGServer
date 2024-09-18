@@ -3,7 +3,7 @@
     ./hardware-configuration.nix
     ../../modules/brightness.nix
     ../../users/flavio.nix
-    ../../modules/shutdown.nix
+    # ../../modules/shutdown.nix
     ../../modules/podman.nix
   ];
 
