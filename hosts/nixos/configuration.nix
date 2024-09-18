@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  self,
+  ...
+}: {
   systemd.services.brightless = {
     description = "Le baja todo el brillo a la laptop";
     after = ["display-manager.service" "multi-user.target"];
@@ -24,6 +28,9 @@
   users.users.flavio = {
     isNormalUser = true;
     extraGroups = ["wheel"];
+    packages = let
+      vimRice = self.inputs.flaviosConfiguration.outputs.vim;
+    in [vimRice];
   };
 
   environment.systemPackages = with pkgs; [

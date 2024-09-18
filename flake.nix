@@ -14,6 +14,7 @@
   };
 
   outputs = {
+    self,
     nixpkgs,
     nixpkgs_unstable,
     nix-formatter-pack,
@@ -42,6 +43,7 @@
         });
   in {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+      specalArgs = {inherit self;};
       system = "x86_64-linux";
       modules = [./hosts/nixos/configuration.nix];
     };
