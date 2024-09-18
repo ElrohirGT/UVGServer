@@ -43,7 +43,7 @@
         });
   in {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-      specalArgs = {inherit self;};
+      specialArgs = {inherit self;};
       system = "x86_64-linux";
       modules = [./hosts/nixos/configuration.nix];
     };
