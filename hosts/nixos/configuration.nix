@@ -1,7 +1,4 @@
-{
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   systemd.services.brightless = {
     description = "Le baja todo el brillo a la laptop";
     after = ["display-manager.service" "multi-user.target"];
