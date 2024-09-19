@@ -57,7 +57,7 @@
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
-            home-manager.users.flavio = import ./users/flavio/home.nix;
+            users.flavio = import ./users/flavio/home.nix;
           };
         }
       ];
