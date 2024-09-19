@@ -2,7 +2,7 @@
   imports = [
     ./hardware-configuration.nix
     ../../modules/brightness.nix
-    ../../users/flavio.nix
+    ../../users/flavio/flavio.nix
     ../../users/mathew.nix
     # ../../modules/shutdown.nix
     ../../modules/podman.nix

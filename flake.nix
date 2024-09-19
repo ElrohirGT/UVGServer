@@ -11,6 +11,10 @@
       url = "github:Gerschtli/nix-formatter-pack";
       inputs.nixpkgs.follows = "nixpkgs_unstable";
     };
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs_unstable";
+    };
   };
 
   outputs = {
@@ -18,6 +22,7 @@
     nixpkgs,
     nixpkgs_unstable,
     nix-formatter-pack,
+    home-manager,
     ...
   }: let
     forAllSystems = {
@@ -45,7 +50,17 @@
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit self;};
       system = "x86_64-linux";
-      modules = [./hosts/nixos/configuration.nix];
+      modules = [
+        ./hosts/nixos/configuration.nix
+        home-manager.nixosModules.home-manager
+        {
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            home-manager.users.flavio = import ./users/flavio/home.nix;
+          };
+        }
+      ];
     };
 
     formatter = forAllSystems {

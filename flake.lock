@@ -198,6 +198,26 @@
         "type": "github"
       }
     },
+    "home-manager_3": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs_unstable"
+        ]
+      },
+      "locked": {
+        "lastModified": 1726611255,
+        "narHash": "sha256-/bxaYvIK6/d3zqpW26QFS0rqfd0cO4qreSNWvYLTl/w=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "d2493de5cd1da06b6a4c3e97f4e7d5dd791df457",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "type": "github"
+      }
+    },
     "nix-darwin": {
       "inputs": {
         "nixpkgs": [
@@ -448,6 +468,7 @@
     "root": {
       "inputs": {
         "flaviosConfiguration": "flaviosConfiguration",
+        "home-manager": "home-manager_3",
         "nix-formatter-pack": "nix-formatter-pack_2",
         "nixpkgs": "nixpkgs_2",
         "nixpkgs_unstable": "nixpkgs_unstable_2"
