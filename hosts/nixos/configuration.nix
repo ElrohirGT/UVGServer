@@ -32,7 +32,19 @@
     };
   };
 
-  networking.firewall.allowedTCPPorts = [2222 8096 8920 137 138 139 445];
+  # networking.firewall.allowedTCPPorts = [2222 8096 8920 137 138 139 445];
+  networking.interfaces = {
+    wakeUp = {
+      wakeOnLan.enable = true;
+      ipv4 = {
+        addresses = [
+          {
+            address = "190.148.223.41";
+          }
+        ];
+      };
+    };
+  };
 
   system.stateVersion = "24.05";
 }
