@@ -40,6 +40,7 @@
         addresses = [
           {
             address = "190.148.223.41";
+            prefixLength = 32;
           }
         ];
       };
