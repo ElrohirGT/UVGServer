@@ -32,7 +32,7 @@
     };
   };
 
-  # networking.firewall.allowedTCPPorts = [2222 8096 8920 137 138 139 445];
+  networking.firewall.allowedTCPPorts = [22 3000];
   # networking.interfaces = {
   #   wakeUp = {
   #     wakeOnLan.enable = true;
