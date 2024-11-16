@@ -6,6 +6,7 @@
     ../../users/mathew.nix
     # ../../modules/shutdown.nix
     ../../modules/podman.nix
+	../../modules/docker.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
